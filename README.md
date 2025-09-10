@@ -12,11 +12,7 @@
 - **Model**: Neural Collaborative Filtering (user/item embeddings → MLP → dot/prediction).  
 - **Loss**: BCE with implicit positives (rated items) + sampled negatives.  
 - **Metrics**: Recall@K, NDCG@K, Hit Rate.
-## Results (fill these)
-| Model | Recall@10 | NDCG@10 | Notes |
-|------|-----------|---------|-------|
-| MF (baseline) | 0.xx | 0.xx | |
-| NCF (PyTorch) | 0.xx | 0.xx | +xx% vs baseline |
+ |
 _Add training curves and bar charts in `/experiments/results/plots` and embed here._
 ## Repro
 ```bash
