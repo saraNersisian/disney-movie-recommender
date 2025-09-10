@@ -31,6 +31,7 @@ jupyter nbconvert --to notebook --execute notebooks/02_baseline_mf.ipynb
 # 4) Train NCF
 python src/train.py --config experiments/configs/ncf.yaml
 python src/evaluate.py --ckpt runs/ncf_best.pt --k 10
-# 5) Streamlit (optional)
+# 5) Streamlit 
 streamlit run app/streamlit_app.py
 <img width="1270" height="646" alt="image" src="https://github.com/user-attachments/assets/d3347966-8bb0-4e05-9a3c-45dd0b42c1d5" />
+
