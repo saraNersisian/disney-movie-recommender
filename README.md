@@ -12,7 +12,6 @@
 - **Model**: Neural Collaborative Filtering (user/item embeddings → MLP → dot/prediction).  
 - **Loss**: BCE with implicit positives (rated items) + sampled negatives.  
 - **Metrics**: Recall@K, NDCG@K, Hit Rate.
- |
 _Add training curves and bar charts in `/experiments/results/plots` and embed here._
 ## Repro
 ```bash
