@@ -5,8 +5,9 @@
 - Streamlit app (optional): `streamlit run app/streamlit_app.py`
 - Example: Input 3 favorite movies → returns Top‑10 recommendations.
 ## Dataset
-- **MovieLens 100K**: users, items, ratings (0–5).  
-- Download via script: `bash scripts/download_movielens.sh`
+- **MovieLens Latest-small**: users, items, ratings (0–5).  
+- Download from: `https://files.grouplens.org/datasets/movielens/ml-latest-small.zip`
+- **TMDb**: Rich movies metadata with Public API
 ## Approach
 - **Baseline**: Matrix Factorization (implicit feedback w/ negative sampling).  
 - **Model**: Neural Collaborative Filtering (user/item embeddings → MLP → dot/prediction).  
