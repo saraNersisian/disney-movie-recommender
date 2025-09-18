@@ -209,3 +209,6 @@ __marimo__/
 # macOS system files
 .DS_Store
 .Store
+
+# data that can be regenerated
+data/processed/

@@ -1,33 +1,65 @@
+# 🎬 Disney Movie Recommender (PyTorch)
 
-# Disney Movie Recommender (PyTorch)
-**What it is**: A neural collaborative filtering recommender trained on MovieLens 100K. Produces top‑N movie recommendations per user and compares against a matrix factorization baseline.
-## Demo
-- Streamlit app (optional): `streamlit run app/streamlit_app.py`
-- Example: Input 3 favorite movies → returns Top‑10 recommendations.
-## Dataset
-- **MovieLens Latest-small**: users, items, ratings (0–5).  
-- Download from: `https://files.grouplens.org/datasets/movielens/ml-latest-small.zip`
-- **TMDb**: Rich movies metadata with Public API
-## Approach
-- **Baseline**: Matrix Factorization (implicit feedback w/ negative sampling).  
-- **Model**: Neural Collaborative Filtering (user/item embeddings → MLP → dot/prediction).  
-- **Loss**: BCE with implicit positives (rated items) + sampled negatives.  
-- **Metrics**: Recall@K, NDCG@K, Hit Rate.
-_Add training curves and bar charts in `/experiments/results/plots` and embed here._
-## Repro
+A simple **movie recommender system** built in Python using the **MovieLens 100K dataset**.  
+The model is trained with **Neural Collaborative Filtering (NCF) in PyTorch** and demonstrates personalized recommendations, with a focus on **Disney/Pixar/Marvel titles**.
+
+---
+
+## 🚀 How to Run
+
+### 1. Clone & Setup
 ```bash
-# 1) Create env
-python -m venv .venv && source .venv/bin/activate
+git clone https://github.com/saraNersisian/disney-movie-recommender.git
+cd disney-movie-recommender
+
+python3 -m venv .venv
+source .venv/bin/activate
+python -m pip install --upgrade pip
 pip install -r requirements.txt
-# 2) Data
-bash scripts/download_movielens.sh
-python scripts/preprocess.py
-# 3) Baseline
-jupyter nbconvert --to notebook --execute notebooks/02_baseline_mf.ipynb
-# 4) Train NCF
-python src/train.py --config experiments/configs/ncf.yaml
-python src/evaluate.py --ckpt runs/ncf_best.pt --k 10
-# 5) Streamlit 
-streamlit run app/streamlit_app.py
-<img width="1270" height="646" alt="image" src="https://github.com/user-attachments/assets/d3347966-8bb0-4e05-9a3c-45dd0b42c1d5" />
+2. Run Jupyter
+bash
+Copy code
+jupyter notebook
+3. Notebooks
+Run notebooks in order:
+
+01_prepare_data.ipynb → load & preprocess MovieLens data (ratings ≥ 4, reindex IDs, train/val split).
+
+02_train_ncf.ipynb → train a simple PyTorch NCF model and evaluate Recall@10 / NDCG@10.
+
+03_demo_disney.ipynb → generate recommendations for a sample user and highlight Disney movies.
+
+📊 Dataset
+MovieLens 100K (latest-small)
+
+100,836 ratings
+
+9,724 movies
+
+610 users
+
+🧠 Approach
+Treat ratings ≥ 4 as implicit “likes”.
+
+Model: Neural Collaborative Filtering (user & movie embeddings → MLP → sigmoid).
+
+Metrics: Recall@10, NDCG@10.
+
+📈 Results (placeholder)
+Model	Recall@10	NDCG@10
+NCF (PyTorch)	0.xx	0.xx
+
+(update after training in 02_train_ncf.ipynb)
+
+🎯 Why Disney?
+While trained on MovieLens, the demo emphasizes Disney/Pixar/Marvel/Lucasfilm titles, making the project directly relevant for Disney internship applications.
+
+🛠 Tech Stack
+Python 3.10+
+
+PyTorch
+
+Pandas, NumPy, Matplotlib
+
+Jupyter
 
